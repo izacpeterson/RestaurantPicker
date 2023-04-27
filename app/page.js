@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center m-10">
       <p className="text-center m-4">
-        Can't decide what's for dinner? Welcome to the Restaurant Picker!
-        <br /> Click 'Create Game' to begin
+        Cant decide whats for dinner? Welcome to the Restaurant Picker!
+        <br /> Click Create Game to begin
       </p>
       <Link href={`/picker/${gameID}`} className="btn btn-primary">
         Create Game
