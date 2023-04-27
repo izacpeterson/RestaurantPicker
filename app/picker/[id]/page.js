@@ -46,8 +46,27 @@ export default function Picker({ params }) {
     });
   }, []);
   return (
-    <main>
-      <h2 className="text-center text-xl pt-4">Restaurants Nearby</h2>
+    <main className="flex flex-col items-center">
+      <p className="text-center text-xl">First, click the button bellow to share with your partner</p>
+      <button
+        onClick={() => {
+          //web share api
+          if (navigator.share) {
+            navigator
+              .share({
+                title: "Restaurants Nearby",
+                text: "Check out these restaurants nearby",
+                url: window.location.href,
+              })
+              .then(() => console.log("Successful share"))
+              .catch((error) => console.log("Error sharing", error));
+          }
+        }}
+        className="btn btn-primary m-4"
+      >
+        Share
+      </button>
+      <h2 className="text-center text-2xl pt-4">Restaurants Nearby</h2>
       <p className="text-center text-xs italic pb-4">Tap/click a restaurant to select</p>
       <ul className="flex flex-col items-center">
         {nearby.map((item) => (
